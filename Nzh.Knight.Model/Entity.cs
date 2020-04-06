@@ -5,12 +5,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KeyAttribute = Nzh.Knight.Extension.KeyAttribute;
 
 namespace Nzh.Knight.Model
 {
     public class Entity
     {
-        //[DapperExtensions.Key(true)]
+        [Key(true)]
         public virtual int Id { get; set; }
         /// <summary>
         /// 创建时间
