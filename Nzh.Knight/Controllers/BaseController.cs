@@ -1,5 +1,4 @@
-﻿using Nzh.Knight;
-using Nzh.Knight.Common;
+﻿using Nzh.Knight.Common;
 using Nzh.Knight.IService;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Nzh.Knight.Areas.Admin.Controllers
+namespace Nzh.Knight.Controllers
 {
     [HandlerLogin]
     public class BaseController : Controller

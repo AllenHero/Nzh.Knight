@@ -6,25 +6,19 @@ using System.Web.Mvc;
 
 namespace Nzh.Knight.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public ActionResult Index()
+        // GET: Admin/Home
+        public override ActionResult Index(int? id)
+        {
+            ViewBag.RealName = Operator == null ? "" : Operator.RealName;
+            ViewBag.HeadShot = Operator == null ? "" : Operator.HeadShot;
+            return View(GetWebSiteInfo());
+        }
+
+        public ActionResult Main()
         {
             return View();
         }
-
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your application description page.";
-
-        //    return View();
-        //}
-
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
     }
 }

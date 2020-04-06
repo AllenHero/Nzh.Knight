@@ -1,6 +1,6 @@
 ﻿using Nzh.Knight;
-using Nzh.Knight.Areas.Admin.Controllers;
 using Nzh.Knight.Common;
+using Nzh.Knight.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

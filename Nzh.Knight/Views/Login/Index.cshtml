@@ -42,7 +42,7 @@
                     <input id="txt_code" maxlength="4" type="text" placeholder="验证码" style="width: 190px; float: left;">
                     <div style="width: 110px; float: right; padding-top: 14px; padding-left: 14px;">
                         <a id="switchCode" href="javascript:;" style="text-decoration: none;">看不清换一张</a>
-                        <img id="imgcode" class="authcode" src="~/Admin/Login/GetAuthCode" width="80" height="25" />
+                        <img id="imgcode" class="authcode" src="~/Login/GetAuthCode" width="80" height="25" />
                     </div>
                 </div>
                 <div class="row">
@@ -95,7 +95,7 @@
                     } else {
                         $("#login_button").attr('disabled', 'disabled').find('span').html("loading...");
                         $.ajax({
-                            url: "/Admin/Login/CheckLogin",
+                            url: "/Login/CheckLogin",
                             data: { username: $.trim($username.val()), password: $.md5($.trim($password.val())), code: $.trim($code.val()) },
                             type: "post",
                             dataType: "json",
@@ -103,7 +103,7 @@
                                 if (data.state == "success") {
                                     $("#login_button").find('span').html("登录成功，正在跳转...");
                                     window.setTimeout(function () {
-                                        window.location.href = "/Admin/Home/Index";
+                                        window.location.href = "/Home/Index";
                                     }, 500);
                                 } else {
                                     $("#login_button").removeAttr('disabled').find('span').html("登录");
@@ -123,7 +123,7 @@
                         $(".container").css("margin-top", ($(window).height() - $(".container").height()) / 2 - 50);
                     });
                     $("#switchCode").click(function () {
-                        $("#imgcode").attr("src", "/Admin/Login/GetAuthCode?time=" + Math.random());
+                        $("#imgcode").attr("src", "/Login/GetAuthCode?time=" + Math.random());
                     });
                     var login_error = top.$.cookie('nfine_login_error');
                     if (login_error != null) {

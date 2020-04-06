@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Nzh.Knight.Areas.Admin.Controllers
+namespace Nzh.Knight.Controllers
 {
     public class LoginController : Controller
     {

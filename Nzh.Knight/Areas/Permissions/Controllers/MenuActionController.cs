@@ -1,4 +1,4 @@
-﻿using Nzh.Knight.Areas.Admin.Controllers;
+﻿using Nzh.Knight.Controllers;
 using Nzh.Knight.IService;
 using Nzh.Knight.Model;
 using System;
