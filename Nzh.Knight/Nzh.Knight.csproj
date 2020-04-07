@@ -148,7 +148,6 @@
     <Compile Include="Areas\SysSet\Controllers\InfoController.cs" />
     <Compile Include="Areas\SysSet\Controllers\LogController.cs" />
     <Compile Include="Areas\SysSet\Controllers\PassWordController.cs" />
-    <Compile Include="Areas\SysSet\Controllers\WebSiteController.cs" />
     <Compile Include="Areas\SysSet\SysSetAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -330,7 +329,6 @@
     <Content Include="Areas\SysSet\Views\Log\Index.cshtml" />
     <Content Include="Areas\SysSet\Views\PassWord\Index.cshtml" />
     <Content Include="Areas\SysSet\Views\web.config" />
-    <Content Include="Areas\SysSet\Views\WebSite\Index.cshtml" />
     <Content Include="Configs\database.config" />
     <Content Include="Configs\log4net.config" />
     <Content Include="Configs\system.config" />

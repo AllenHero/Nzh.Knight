@@ -21,6 +21,7 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
             base.Index(id);
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(PassWordModel model)

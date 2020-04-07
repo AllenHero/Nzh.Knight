@@ -19,6 +19,7 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
         {
             service = _service;
         }
+
         [HttpGet]
         public JsonResult List(PageInfo pageInfo, MenuModel filter)
         {
@@ -26,17 +27,20 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
             var result = new { code = 0, count = list.Count(), data = list };
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         public JsonResult GetMenuList(bool isIndex = false)
         {
             object result = service.GetMenusList(isIndex, Operator.RoleId);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         public ActionResult Edit(int Id)
         {
             var model = service.ReadModel(Id);
             ViewBag.ParentMenuName = service.GetParentMenuName(Id);
             return View(model);
         }
+
         [HttpPost]
         public ActionResult Edit(MenuModel model)
         {
@@ -45,10 +49,12 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
             var result = service.UpdateModel(model) ? SuccessTip() : ErrorTip();
             return Json(result);
         }
+
         public ActionResult Add()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Add(MenuModel model)
         {
@@ -86,11 +92,7 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
             var result = isOk ? SuccessTip() : ErrorTip();
             return Json(result);
         }
-        /// <summary>
-        /// 删除菜单
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
+
         [HttpPost]
         public ActionResult Delete(int Id)
         {
@@ -98,6 +100,7 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
             var result = service.DeleteMenuAllByMenuId(Id) ? SuccessTip() : ErrorTip();
             return Json(result);
         }
+
         [HttpGet]
         public JsonResult MenuActionList(PageInfo pageInfo, MenuModel filter, int roleId)
         {

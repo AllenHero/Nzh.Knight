@@ -19,29 +19,27 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
         {
             service = _service;
         }
-        /// <summary>
-        /// 加载数据列表
-        /// </summary>
-        /// <param name="pageInfo">页面实体信息</param>
-        /// <param name="filter">查询条件</param>
-        /// <returns></returns>
+
         [HttpGet]
         public JsonResult List(ActionModel filter, PageInfo pageInfo)
         {
             var result = service.GetListByFilter(filter, pageInfo);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         public ActionResult Detail(int Id)
         {
             var model = service.ReadModel(Id);
             return View(model);
         }
+
         public ActionResult Edit(int Id)
         {
             ViewData["Position"] = EnumExt.GetSelectList(typeof(PositionEnum));
             var model = service.ReadModel(Id);
             return View(model);
         }
+
         [HttpPost]
         public ActionResult Edit(ActionModel model)
         {
@@ -50,11 +48,13 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
             var result = service.UpdateModel(model) ? SuccessTip() : ErrorTip();
             return Json(result);
         }
+
         public ActionResult Add()
         {
             ViewData["Position"] = EnumExt.GetSelectList(typeof(PositionEnum));
             return View();
         }
+
         [HttpPost]
         public ActionResult Add(ActionModel model)
         {
@@ -63,11 +63,7 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
             var result = service.CreateModel(model) ? SuccessTip() : ErrorTip();
             return Json(result);
         }
-        /// <summary>
-        /// 删除按钮
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
+
         [HttpPost]
         public ActionResult Delete(int Id)
         {
@@ -75,6 +71,7 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
             var result = service.DeleteActionAllByActionId(Id) ? SuccessTip() : ErrorTip();
             return Json(result);
         }
+
         public ActionResult MenuActionList(int Id)
         {
             var model = menuService.ReadModel(Id);

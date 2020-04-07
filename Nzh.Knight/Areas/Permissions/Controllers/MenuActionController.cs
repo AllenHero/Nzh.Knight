@@ -16,6 +16,7 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
         {
             service = _service;
         }
+
         [HttpPost]
         public ActionResult InsertBatch(IEnumerable<MenuActionModel> list, int menuId)
         {

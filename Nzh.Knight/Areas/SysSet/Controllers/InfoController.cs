@@ -24,6 +24,7 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
             var model = userService.GetDetail(_userId);
             return View(model);
         }
+
         [HttpPost]
         public ActionResult Index(UserModel model)
         {
@@ -34,10 +35,7 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
             ViewBag.Msg = result;
             return View("Index", model);
         }
-        /// <summary>
-        /// 上传文件
-        /// </summary>
-        /// <returns></returns>
+
         public JsonResult ExportFile()
         {
             UploadFile _uploadFile = new UploadFile();
@@ -55,7 +53,6 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
                 //定义本地路径位置
                 string localPath = Server.MapPath("~/Upload/img/");
                 string filePathName = string.Empty;
-
                 string tmpName = Server.MapPath("~/Upload/img/");
                 var tmp = file.FileName;
                 var tmpIndex = 0;
@@ -69,9 +66,7 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
 
                 if (!System.IO.Directory.Exists(localPath))
                     System.IO.Directory.CreateDirectory(localPath);
-
                 file.SaveAs(Path.Combine(tmpName, filePathName));   //保存图片（文件夹）  
-
                 _uploadFile.code = 0;
                 _uploadFile.src = Path.Combine("/Upload/img/", filePathName); //name = Path.GetFileNameWithoutExtension(file.FileName),   // 获取文件名不含后缀名  
                 _uploadFile.msg = "上传成功";
