@@ -13,11 +13,6 @@ namespace Nzh.Knight.Repository
 {
     public class MenuRoleActionRepository : BaseRepository<MenuRoleActionModel>, IMenuRoleActionRepository
     {
-        /// <summary>
-        /// 保存菜单角色权限配置
-        /// </summary>
-        /// <param name="entitys">菜单角色权限列表</param>
-        /// <returns></returns>
         public int SavePermission(IEnumerable<MenuRoleActionModel> entitys, int roleId)
         {
             var result = 0;

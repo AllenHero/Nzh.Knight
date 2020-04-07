@@ -11,11 +11,6 @@ namespace Nzh.Knight.Repository
 {
     public class UserRepository : BaseRepository<UserModel>, IUserRepository
     {
-        /// <summary>
-        /// 用户详细信息
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
         public UserModel GetDetail(int Id)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -24,12 +19,7 @@ namespace Nzh.Knight.Repository
                 return conn.Query<UserModel>(sql, new { Id }).FirstOrDefault();
             }
         }
-        /// <summary>
-        /// 登录
-        /// </summary>
-        /// <param name="username">用户名</param>
-        /// <param name="password">密码</param>
-        /// <returns></returns>
+
         public UserModel CheckLogin(string username, string password)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -46,11 +36,7 @@ namespace Nzh.Knight.Repository
                 return conn.Query<UserModel>(sql, new { UserName = username, PassWord = password }).FirstOrDefault();
             }
         }
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <param name="model">密码实体</param>
-        /// <returns></returns>
+
         public int ModifyPwd(PassWordModel model)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -59,6 +45,5 @@ namespace Nzh.Knight.Repository
                 return conn.Execute(sql, model);
             }
         }
-
     }
 }

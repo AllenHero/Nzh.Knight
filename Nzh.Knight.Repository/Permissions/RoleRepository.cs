@@ -12,10 +12,6 @@ namespace Nzh.Knight.Repository
 {
     public class RoleRepository : BaseRepository<RoleModel>, IRoleRepository
     {
-        /// <summary>
-        /// 获取角色列表
-        /// </summary>
-        /// <returns></returns>
         public IEnumerable<RoleModel> GetRoleList()
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -24,6 +20,7 @@ namespace Nzh.Knight.Repository
                 return conn.Query<RoleModel>(sql);
             }
         }
+
         public bool DeleteRoleAllByRoleId(int roleId)
         {
             string sql1 = string.Format("DELETE FROM t_role WHERE Id={0}", roleId);

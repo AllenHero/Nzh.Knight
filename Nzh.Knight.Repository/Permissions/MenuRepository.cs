@@ -19,11 +19,7 @@ namespace Nzh.Knight.Repository
                 return conn.QueryFirstOrDefault<MenuModel>(sql, new { Id = Id });
             }
         }
-        /// <summary>
-        /// 获取有效菜单列表
-        /// </summary>
-        /// <param name="sql">sql语句</param>
-        /// <returns></returns>
+
         public IEnumerable<MenuModel> GetAvailableMenuList(string sql)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -32,12 +28,7 @@ namespace Nzh.Knight.Repository
                 return conn.Query<MenuModel>(sql);
             }
         }
-        /// <summary>
-        /// 根据角色ID获取菜单列表
-        /// </summary>
-        /// <param name="sql">sql语句</param>
-        /// <param name="roleId">角色ID</param>
-        /// <returns></returns>
+
         public IEnumerable<MenuModel> GetMenuListByRoleId(string sql, int roleId)
         {
             using (var conn = MySqlHelper.GetConnection())

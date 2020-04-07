@@ -27,6 +27,7 @@ namespace Nzh.Knight.Repository
                 }
             }
         }
+
         public IEnumerable<ActionModel> GetActionListByMenuId(int menuId)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -35,6 +36,7 @@ namespace Nzh.Knight.Repository
                 return conn.Query<ActionModel>(sql, new { MenuId = menuId });
             }
         }
+
         public IEnumerable<ActionModel> GetActionListByMenuIdRoleId(int menuId, int roleId, PositionEnum position)
         {
             using (var conn = MySqlHelper.GetConnection())
@@ -43,6 +45,7 @@ namespace Nzh.Knight.Repository
                 return conn.Query<ActionModel>(sql, new { MenuId = menuId, RoleId = roleId, Position = (int)position });
             }
         }
+
         public bool DeleteActionAllByActionId(int actionId)
         {
             string sql1 = string.Format("DELETE FROM t_action WHERE id={0}", actionId);

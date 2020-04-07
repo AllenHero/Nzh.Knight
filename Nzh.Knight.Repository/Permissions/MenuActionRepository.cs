@@ -12,12 +12,6 @@ namespace Nzh.Knight.Repository
 {
     public class MenuActionRepository : BaseRepository<MenuActionModel>, IMenuActionRepository
     {
-        /// <summary>
-        /// 保存菜单权限配置
-        /// </summary>
-        /// <param name="entitys">菜单权限列表</param>
-        /// <param name="menuId"></param>
-        /// <returns></returns>
         public int SavePermission(IEnumerable<MenuActionModel> entitys, int menuId)
         {
             var result = 0;
