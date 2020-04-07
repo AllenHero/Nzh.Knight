@@ -13,8 +13,11 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
     public class MenuController : BaseController
     {
         private IMenuService service;
+
         public IMenuActionService menuActionService { get; set; }
+
         public IMenuRoleActionService menuRoleActionService { get; set; }
+
         public MenuController(IMenuService _service)
         {
             service = _service;

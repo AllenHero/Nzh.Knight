@@ -12,8 +12,11 @@ namespace Nzh.Knight.Service
     public class MenuService : BaseService<MenuModel>, IMenuService
     {
         public IMenuRepository repository { get; set; }
+
         public IActionService actionService { get; set; }
+
         public IMenuRoleActionService menuRoleActionService { get; set; }
+
         private void SetTree(Tree _tree, string menuUrl, bool isIndex)
         {
             if (isIndex)
@@ -21,18 +24,21 @@ namespace Nzh.Knight.Service
                 _tree.href = menuUrl;
             }
         }
+
         public string GetIconHtmlString()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("<ul class='site-doc-icon'>");
             return sb.ToString();
         }
+
         public string GetParentMenuName(int Id)
         {
             var sql = "select m.MenuName from t_menu m where m.Id=(SELECT ParentId as Id from t_menu where Id=@Id)";
             var result = repository.GetParentMenu(sql, Id);
             return result == null ? "" : result.MenuName;
         }
+
         public dynamic GetMenusList(bool isIndex, int roleId)
         {
             IEnumerable<MenuModel> allMenus = GetMenuListByRoleId(roleId);
@@ -53,10 +59,7 @@ namespace Nzh.Knight.Service
             var result = treeList;
             return treeList;
         }
-        /// <summary>
-        /// 根据一级菜单加载子菜单列表
-        /// </summary>
-        /// <returns></returns>
+
         private void GetMenusByRootMenuId(List<Tree> treeList, IEnumerable<MenuModel> allMenus, Tree tree, int menuId, bool isIndex)
         {
             var childMenus = allMenus.Where(x => x.ParentId == menuId).OrderBy(x => x.OrderNo);
@@ -73,22 +76,14 @@ namespace Nzh.Knight.Service
                 }
             }
         }
-        /// <summary>
-        /// 根据角色ID获取菜单列表
-        /// </summary>
-        /// <param name="roleId">角色ID</param>
-        /// <returns></returns>
+
         private IEnumerable<MenuModel> GetMenuListByRoleId(int roleId)
         {
-            string sql = @"SELECT
-	m.Id,m.MenuName,m.MenuIcon,m.OrderNo,m.ParentId,m.MenuUrl
-FROM
-	t_menu_role_action mra
-INNER JOIN t_menu m ON mra.MenuId = m.Id";
+            string sql = @"SELECT m.Id,m.MenuName,m.MenuIcon,m.OrderNo,m.ParentId,m.MenuUrl FROM t_menu_role_action mra INNER JOIN t_menu m ON mra.MenuId = m.Id";
             var list = repository.GetMenuListByRoleId(sql, roleId);
-
             return list;
         }
+
         public dynamic GetListByFilter(MenuModel filter, PageInfo pageInfo)
         {
             string _where = " where 1=1";
@@ -99,18 +94,10 @@ INNER JOIN t_menu m ON mra.MenuId = m.Id";
             pageInfo.field = "ParentId asc,OrderNo asc";
             return GetListByFilter(filter, pageInfo, _where);
         }
-        /// <summary>
-        /// 获取可用菜单列表
-        /// </summary>
-        /// <param name="roleId">角色ID</param>
-        /// <returns></returns>
+
         public IEnumerable<MenuModel> GetAvailableMenuList(int roleId)
         {
-            string sql = @"SELECT
-	m.Id,m.MenuName,m.MenuIcon,m.OrderNo,m.ParentId
-FROM
-	t_menu_role_action mra
-INNER JOIN t_menu m ON mra.MenuId = m.Id";
+            string sql = @"SELECT m.Id,m.MenuName,m.MenuIcon,m.OrderNo,m.ParentId FROM t_menu_role_action mra INNER JOIN t_menu m ON mra.MenuId = m.Id";
             var list = repository.GetAvailableMenuList(sql);
             foreach (var v in list)
             {

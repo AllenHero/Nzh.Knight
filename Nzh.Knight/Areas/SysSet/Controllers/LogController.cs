@@ -12,6 +12,7 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
     public class LogController : BaseController
     {
         private readonly ILogService service;
+
         public LogController(ILogService _service)
         {
             service = _service;

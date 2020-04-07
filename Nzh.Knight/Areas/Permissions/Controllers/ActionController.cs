@@ -14,7 +14,9 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
     public class ActionController : BaseController
     {
         private IActionService service;
+
         public IMenuService menuService { get; set; }
+
         public ActionController(IActionService _service)
         {
             service = _service;

@@ -13,6 +13,7 @@ namespace Nzh.Knight.Service
     public class ActionService : BaseService<ActionModel>, IActionService
     {
         public IActionRepository repository { get; set; }
+
         public dynamic GetListByFilter(ActionModel filter, PageInfo pageInfo)
         {
             string _where = " where 1=1";
@@ -26,6 +27,7 @@ namespace Nzh.Knight.Service
             }
             return GetListByFilter(filter, pageInfo, _where);
         }
+
         public string GetActionListHtmlByRoleId(int roleId, int menuId)
         {
             IEnumerable<ActionModel> selectList = null;
@@ -41,10 +43,12 @@ namespace Nzh.Knight.Service
             }
             return sb.ToString();
         }
+
         public IEnumerable<ActionModel> GetActionListByMenuId(int menuId)
         {
             return repository.GetActionListByMenuId(menuId);
         }
+
         public IEnumerable<ActionModel> GetActionListByMenuIdRoleId(int menuId, int roleId, PositionEnum position)
         {
             return repository.GetActionListByMenuIdRoleId(menuId, roleId, position);

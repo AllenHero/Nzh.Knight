@@ -13,30 +13,24 @@ namespace Nzh.Knight.Service
     public class UserService : BaseService<UserModel>, IUserService
     {
         public IUserRepository repository { get; set; }
+
         public UserModel GetDetail(int Id)
         {
             return repository.GetDetail(Id);
         }
+
         public UserModel CheckLogin(string username, string password)
         {
             return repository.CheckLogin(username, password);
         }
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <param name="model">密码实体</param>
-        /// <returns></returns>
+
         public bool ModifyPwd(PassWordModel model)
         {
             model.OldPassword = Md5.md5(model.OldPassword, 32);
             model.Password = Md5.md5(model.Password, 32);
             return repository.ModifyPwd(model) > 0 ? true : false;
         }
-        /// <summary>
-        /// 重置密码
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
+
         public bool InitPwd(UserModel model)
         {
             return repository.Update(model, "PassWord") > 0 ? true : false;

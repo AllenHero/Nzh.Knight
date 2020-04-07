@@ -12,6 +12,7 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
     public class MenuActionController : BaseController
     {
         private readonly IMenuActionService service;
+
         public MenuActionController(IMenuActionService _service)
         {
             service = _service;

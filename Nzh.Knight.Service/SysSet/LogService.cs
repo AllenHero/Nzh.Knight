@@ -19,6 +19,7 @@ namespace Nzh.Knight.Service
             //model.IPAddressName = Net.GetLocation(model.IPAddress);
             return baseRepository.Create(model) > 0 ? true : false;
         }
+
         public dynamic GetListByFilter(LogModel filter, PageInfo pageInfo)
         {
             string _where = " where 1=1";

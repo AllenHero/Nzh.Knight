@@ -14,6 +14,7 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
     public class InfoController : BaseController
     {
         public IUserService userService { get; set; }
+
         // GET: SysSet/Info
         public override ActionResult Index(int? id)
         {

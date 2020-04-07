@@ -12,10 +12,12 @@ namespace Nzh.Knight.Service
     public class RoleService : BaseService<RoleModel>, IRoleService
     {
         public IRoleRepository repository { get; set; }
+
         public IEnumerable<RoleModel> GetRoleList()
         {
             return repository.GetRoleList();
         }
+
         public dynamic GetListByFilter(RoleModel filter, PageInfo pageInfo)
         {
             string _where = " where 1=1";

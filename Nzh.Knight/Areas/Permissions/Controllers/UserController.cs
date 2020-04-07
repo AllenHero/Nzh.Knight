@@ -13,8 +13,11 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
     public class UserController : BaseController
     {
         public IUserService userService { get; set; }
+
         public IRoleService roleService { get; set; }
+
         public SelectList RoleList { get { return new SelectList(roleService.GetRoleList(), "Id", "RoleName"); } }
+
         // GET: Permissions/User
         public override ActionResult Index(int? id)
         {

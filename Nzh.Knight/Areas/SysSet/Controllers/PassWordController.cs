@@ -14,6 +14,7 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
     public class PassWordController : BaseController
     {
         public IUserService userService { get; set; }
+
         // GET: SysSet/PassWord
         public override ActionResult Index(int? id)
         {
