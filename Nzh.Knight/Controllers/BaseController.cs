@@ -12,9 +12,13 @@ namespace Nzh.Knight.Controllers
     public class BaseController : Controller
     {
         protected const string SuccessText = "操作成功！";
+
         protected const string ErrorText = "操作失败！";
+
         public ILogService logService { get; set; }
+
         public IActionService actionService { get; set; }
+
         public OperatorModel Operator
         {
             get

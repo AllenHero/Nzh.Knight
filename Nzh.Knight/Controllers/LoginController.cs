@@ -12,7 +12,9 @@ namespace Nzh.Knight.Controllers
     public class LoginController : Controller
     {
         private IUserService userService;
+
         private ILogService logService;
+
         public LoginController(IUserService _userService, ILogService _logService)
         {
             userService = _userService;
