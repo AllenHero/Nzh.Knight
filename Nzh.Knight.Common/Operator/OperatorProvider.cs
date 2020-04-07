@@ -13,7 +13,9 @@ namespace Nzh.Knight.Common
         {
             get { return new OperatorProvider(); }
         }
+
         private string LoginUserKey = "secom_loginkey_2018";
+
         private string LoginProvider = Configs.GetValue("LoginProvider");
 
         public OperatorModel GetCurrent()
@@ -29,6 +31,7 @@ namespace Nzh.Knight.Common
             }
             return operatorModel;
         }
+
         public void AddCurrent(OperatorModel operatorModel)
         {
             if (LoginProvider == "Cookie")
@@ -42,6 +45,7 @@ namespace Nzh.Knight.Common
             WebHelper.WriteCookie("secom_mac", Md5.md5(Net.GetMacByNetworkInterface().ToJson(), 32));
             WebHelper.WriteCookie("secom_licence", Licence.GetLicence());
         }
+
         public void RemoveCurrent()
         {
             if (LoginProvider == "Cookie")

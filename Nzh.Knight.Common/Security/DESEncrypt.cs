@@ -11,22 +11,11 @@ namespace Nzh.Knight.Common
     {
         private static string DESKey = "nfine_desencrypt_2016";
 
-        #region ========加密========
-        /// <summary>
-        /// 加密
-        /// </summary>
-        /// <param name="Text"></param>
-        /// <returns></returns>
         public static string Encrypt(string Text)
         {
             return Encrypt(Text, DESKey);
         }
-        /// <summary> 
-        /// 加密数据 
-        /// </summary> 
-        /// <param name="Text"></param> 
-        /// <param name="sKey"></param> 
-        /// <returns></returns> 
+
         public static string Encrypt(string Text, string sKey)
         {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
@@ -46,14 +35,6 @@ namespace Nzh.Knight.Common
             return ret.ToString();
         }
 
-        #endregion
-
-        #region ========解密========
-        /// <summary>
-        /// 解密
-        /// </summary>
-        /// <param name="Text"></param>
-        /// <returns></returns>
         public static string Decrypt(string Text)
         {
             if (!string.IsNullOrEmpty(Text))
@@ -65,12 +46,7 @@ namespace Nzh.Knight.Common
                 return "";
             }
         }
-        /// <summary> 
-        /// 解密数据 
-        /// </summary> 
-        /// <param name="Text"></param> 
-        /// <param name="sKey"></param> 
-        /// <returns></returns> 
+
         public static string Decrypt(string Text, string sKey)
         {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
@@ -91,7 +67,5 @@ namespace Nzh.Knight.Common
             cs.FlushFinalBlock();
             return Encoding.Default.GetString(ms.ToArray());
         }
-
-        #endregion
     }
 }

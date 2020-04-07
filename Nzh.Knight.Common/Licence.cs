@@ -22,6 +22,7 @@ namespace Nzh.Knight.Common
 
             return false;
         }
+
         public static string GetLicence()
         {
             var licence = Configs.GetValue("LicenceKey");
