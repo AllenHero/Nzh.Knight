@@ -10,12 +10,6 @@ namespace Nzh.Knight
 {
     public static class MyExtHtmlLabel
     {
-        /// <summary>
-        /// 菜单管理权限复选框
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="_list"></param>
-        /// <returns></returns>
         public static HtmlString ActionCheckBox(this HtmlHelper helper, dynamic _list = null, dynamic _alist = null)
         {
             StringBuilder sb = new StringBuilder();
@@ -38,11 +32,13 @@ namespace Nzh.Knight
             }
             return new HtmlString(sb.ToString());
         }
+
         public static HtmlString DisplayStatusHtml(this HtmlHelper helper, bool? value)
         {
             var msg = value.Value ? "启用" : "停用";
             return new HtmlString(string.Format("<span>{0}</span>", msg));
         }
+
         public static HtmlString StatusRadioHtml(this HtmlHelper helper, bool? value)
         {
             var msg = value.Value ? "启用" : "停用";
@@ -56,12 +52,7 @@ namespace Nzh.Knight
 
             return new HtmlString(result);
         }
-        /// <summary>
-        /// 状态下拉框
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="defaultTxt">默认显示文本</param>
-        /// <returns></returns>
+
         public static HtmlString StatusSelectHtml(this HtmlHelper helper, string defaultTxt = "")
         {
             return new HtmlString(string.Format(@"<select name='Status'>
@@ -70,12 +61,7 @@ namespace Nzh.Knight
                             <option value = 'false'> 停用 </option>
                              </select>", defaultTxt));
         }
-        /// <summary>
-        /// 性别下拉框
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="defaultTxt">默认显示文本</param>
-        /// <returns></returns>
+
         public static HtmlString GanderRadioHtml(this HtmlHelper helper, int defaultVal = 1)
         {
             var _male = defaultVal == 1 ? "checked" : "";
@@ -83,29 +69,17 @@ namespace Nzh.Knight
             return new HtmlString(string.Format(@"<input type='radio' name='Gender' value='1' title='男' {0}>
                      <input type='radio' name='Gender' value='0' title='女' {1}>", _male, _female));
         }
-        /// <summary>
-        /// 搜索按钮
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <returns></returns>
+
         public static HtmlString SearchBtnHtml(this HtmlHelper helper, string txt = "搜索", string _class = "")
         {
             return new HtmlString(string.Format("<a href='javascript:;' class='layui-btn{1}' id='btnSearch' data-type='reload'><i class='layui-icon'>&#xe615;</i>{0}</a>", txt, _class));
         }
-        /// <summary>
-        /// 重置按钮
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <returns></returns>
+
         public static HtmlString ResetBtnHtml(this HtmlHelper helper, string txt = "重置", string _class = " layui-btn-primary")
         {
             return new HtmlString(string.Format("<button type='reset' class='layui-btn{1}'>{0}</button>", txt, _class));
         }
-        /// <summary>
-        /// 表单内工具栏
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <returns></returns>
+
         public static HtmlString ToolBarHtml(this HtmlHelper helper, dynamic _list = null)
         {
             StringBuilder sb = new StringBuilder();
@@ -122,11 +96,7 @@ namespace Nzh.Knight
             //sb.Append("</script>");
             return new HtmlString(sb.ToString());
         }
-        /// <summary>
-        /// 表单外工具栏
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <returns></returns>
+
         public static HtmlString TopToolBarHtml(this HtmlHelper helper, dynamic _list = null, string initTxt = null)
         {
             StringBuilder sb = new StringBuilder();

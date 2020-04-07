@@ -18,6 +18,7 @@ namespace Nzh.Knight.Controllers
             userService = _userService;
             logService = _logService;
         }
+
         // GET: Admin/Login
         public ActionResult Index()
         {
@@ -26,11 +27,13 @@ namespace Nzh.Knight.Controllers
             ViewBag.SiteDomain = Configs.GetValue("SiteDomain");
             return View();
         }
+
         [HttpGet]
         public ActionResult GetAuthCode()
         {
             return File(new VerifyCode().GetVerifyCode(), @"image/Gif");
         }
+
         [HttpGet]
         public ActionResult OutLogin()
         {
@@ -47,6 +50,7 @@ namespace Nzh.Knight.Controllers
             OperatorProvider.Provider.RemoveCurrent();
             return RedirectToAction("Index", "Login");
         }
+
         [HttpPost]
         public ActionResult CheckLogin(string username, string password, string code)
         {
