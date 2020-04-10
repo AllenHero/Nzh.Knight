@@ -9,6 +9,6 @@ namespace Nzh.Knight.IRepository
 {
     public interface ILogRepository : IBaseRepository<LogModel>
     {
-
+        //
     }
 }

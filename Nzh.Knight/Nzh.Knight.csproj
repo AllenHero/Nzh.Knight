@@ -139,6 +139,7 @@
     <Compile Include="App_Start\Handler\HandlerLoginAttribute.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Permissions\Controllers\ActionController.cs" />
+    <Compile Include="Areas\Permissions\Controllers\LogController.cs" />
     <Compile Include="Areas\Permissions\Controllers\MenuActionController.cs" />
     <Compile Include="Areas\Permissions\Controllers\MenuController.cs" />
     <Compile Include="Areas\Permissions\Controllers\MenuRoleActionController.cs" />
@@ -146,7 +147,6 @@
     <Compile Include="Areas\Permissions\Controllers\UserController.cs" />
     <Compile Include="Areas\Permissions\PermissionsAreaRegistration.cs" />
     <Compile Include="Areas\SysSet\Controllers\InfoController.cs" />
-    <Compile Include="Areas\SysSet\Controllers\LogController.cs" />
     <Compile Include="Areas\SysSet\Controllers\PassWordController.cs" />
     <Compile Include="Areas\SysSet\SysSetAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -326,12 +326,12 @@
     <Content Include="Areas\Permissions\Views\User\Index.cshtml" />
     <Content Include="Areas\Permissions\Views\web.config" />
     <Content Include="Areas\SysSet\Views\Info\Index.cshtml" />
-    <Content Include="Areas\SysSet\Views\Log\Index.cshtml" />
     <Content Include="Areas\SysSet\Views\PassWord\Index.cshtml" />
     <Content Include="Areas\SysSet\Views\web.config" />
     <Content Include="Configs\database.config" />
     <Content Include="Configs\log4net.config" />
     <Content Include="Configs\system.config" />
+    <Content Include="Areas\Permissions\Views\Log\Index.cshtml" />
     <None Include="Content\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\Scripts\jquery-1.10.2.js" />
     <Content Include="Content\Scripts\jquery-1.10.2.min.js" />

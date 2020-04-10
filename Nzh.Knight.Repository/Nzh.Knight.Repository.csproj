@@ -75,13 +75,13 @@
     <Compile Include="DBHelper\PageDataView.cs" />
     <Compile Include="DBHelper\SqlHelper.cs" />
     <Compile Include="Permissions\ActionRepository.cs" />
+    <Compile Include="Permissions\LogRepository.cs" />
     <Compile Include="Permissions\MenuActionRepository.cs" />
     <Compile Include="Permissions\MenuRepository.cs" />
     <Compile Include="Permissions\MenuRoleActionRepository.cs" />
     <Compile Include="Permissions\RoleRepository.cs" />
     <Compile Include="Permissions\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SysSet\LogRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

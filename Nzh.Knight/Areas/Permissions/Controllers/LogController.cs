@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Nzh.Knight.Areas.SysSet.Controllers
+namespace Nzh.Knight.Areas.Permissions.Controllers
 {
     public class LogController : BaseController
     {
