@@ -18,7 +18,6 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
 
         public SelectList RoleList { get { return new SelectList(roleService.GetRoleList(), "Id", "RoleName"); } }
 
-        // GET: Permissions/User
         public override ActionResult Index(int? id)
         {
             ViewBag.RoleId = RoleList;

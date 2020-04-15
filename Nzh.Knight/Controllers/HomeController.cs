@@ -8,7 +8,6 @@ namespace Nzh.Knight.Controllers
 {
     public class HomeController : BaseController
     {
-        // GET: Admin/Home
         public override ActionResult Index(int? id)
         {
             ViewBag.RealName = Operator == null ? "" : Operator.RealName;

@@ -21,7 +21,6 @@ namespace Nzh.Knight.Controllers
             logService = _logService;
         }
 
-        // GET: Admin/Login
         public ActionResult Index()
         {
             ViewBag.Title = Configs.GetValue("SiteName");

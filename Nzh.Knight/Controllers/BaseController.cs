@@ -27,7 +27,6 @@ namespace Nzh.Knight.Controllers
             }
         }
 
-        // GET: Admin/Base
         public virtual ActionResult Index(int? id)
         {
             var _menuId = id == null ? 0 : id.Value;

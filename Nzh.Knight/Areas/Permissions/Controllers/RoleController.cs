@@ -14,7 +14,6 @@ namespace Nzh.Knight.Areas.Permissions.Controllers
     {
         public IRoleService service { get; set; }
 
-        // GET: Permissions/Role
         public override ActionResult Index(int? id)
         {
             base.Index(id);

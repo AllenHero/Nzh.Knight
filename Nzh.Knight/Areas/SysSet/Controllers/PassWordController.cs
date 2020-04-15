@@ -15,7 +15,6 @@ namespace Nzh.Knight.Areas.SysSet.Controllers
     {
         public IUserService userService { get; set; }
 
-        // GET: SysSet/PassWord
         public override ActionResult Index(int? id)
         {
             ViewBag.UserName = Operator.UserName;
